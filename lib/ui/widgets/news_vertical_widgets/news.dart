@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/models/article.dart';
 
 class News extends StatelessWidget {
-  const News({super.key});
+  const News({super.key, required this.generalNews});
+
+  final Article generalNews;
 
   @override
   Widget build(BuildContext context) {
@@ -9,16 +12,16 @@ class News extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
-          child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4ksoKRSYsFj22NMqCs3QkKPxLy7WBzRHg9w&s" ,
+          child: Image.network( generalNews.image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUVOiiseRib5RMnu-d8hONYJdDtIIhpduzWA&s" ,
           fit: BoxFit.fill,
           width: double.infinity,),
         ) ,
-        const Text("America's Evolving Role on the Global Stage" ,
-          style: TextStyle(fontSize: 25,
-          overflow:TextOverflow.ellipsis),),
-        const Text("As economic, political, and cultural dynamics shift worldwide, the United States continues to adapt,"
-            " balancing its leadership responsibilities with domestic challenges and global collaboration efforts.",
-          style: TextStyle(fontSize: 14,
+        Text(generalNews.title  ,
+          style: const TextStyle(fontSize: 25,
+          overflow:TextOverflow.ellipsis
+          ),),
+        Text(generalNews.subTitle ?? " ",
+          style: const TextStyle(fontSize: 14,
           overflow: TextOverflow.ellipsis,
           color: Colors.grey),)
       ],

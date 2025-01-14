@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/ui/screens/display_category_news.dart';
 import '../../../models/horizontal_categories_model.dart';
 import '../../../style/images.dart';
 import 'category_cards.dart';
